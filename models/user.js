@@ -22,6 +22,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "role_id",
         as: "role"
       })
+
+      User.belongsToMany(models.HakiProposal, {
+        through: models.MemberProposal,
+        foreignKey: 'user_id',
+        as: 'proposals'
+      });
+      
     }
   }
   User.init({
